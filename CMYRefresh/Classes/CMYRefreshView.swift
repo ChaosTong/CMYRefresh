@@ -19,7 +19,7 @@ extension CMYRefreshView: CMYRefreshViewProtocol {
                 self.imageView.transform = CGAffineTransform.identity
             }
             refreshingView.stopAnimating()
-            imageView.isHidden = false
+//            imageView.isHidden = false
             text = config.textIdle
         case .ready:
             action = {
@@ -61,20 +61,21 @@ public class CMYRefreshView: UIView {
     lazy var imageView: UIImageView = {
         var imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.imageViewWidth, height: self.imageViewWidth))
         imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
         return imageView
     }()
     
     lazy var textLabel: UILabel = {
         var label = UILabel(frame: CGRect.zero)
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor(white: 0.4, alpha: 1.0)
+        label.textColor = .white//UIColor(white: 0.4, alpha: 1.0)
         label.textAlignment = .center
         label.backgroundColor = UIColor.clear
         return label
     }()
     
     lazy var refreshingView: UIActivityIndicatorView = {
-        var refreshingView = UIActivityIndicatorView(style: .gray)
+        var refreshingView = UIActivityIndicatorView(style: .white)
         refreshingView.hidesWhenStopped = true
         return refreshingView
     }()
